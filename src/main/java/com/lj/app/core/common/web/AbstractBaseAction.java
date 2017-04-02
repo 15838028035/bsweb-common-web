@@ -85,6 +85,9 @@ public abstract class AbstractBaseAction<T> extends ActionSupport implements Mod
 	private String sidx;
 	private String sord;
 	
+	private String sortName;
+	private String sortOrder;
+	
 	protected String appId;
 	
 	// 与jsp表单中的名称对应
@@ -116,6 +119,22 @@ public abstract class AbstractBaseAction<T> extends ActionSupport implements Mod
 
 	public void setSord(String sord) {
 		this.sord = sord;
+	}
+
+	public String getSortName() {
+		return sortName;
+	}
+
+	public void setSortName(String sortName) {
+		this.sortName = sortName;
+	}
+
+	public String getSortOrder() {
+		return sortOrder;
+	}
+
+	public void setSortOrder(String sortOrder) {
+		this.sortOrder = sortOrder;
 	}
 
 	public String getAppId() {
