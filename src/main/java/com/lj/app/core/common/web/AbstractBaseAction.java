@@ -85,13 +85,10 @@ public abstract class AbstractBaseAction<T> extends ActionSupport implements Mod
 	private String sidx;
 	private String sord;
 	
-<<<<<<< HEAD
-	private String sortName;
-	private String sortOrder;
-	
-=======
->>>>>>> init commit
 	protected String appId;
+	
+	private String sortName;//排序名称
+	private String sortOrder;//排序方式
 	
 	// 与jsp表单中的名称对应
 	protected File templateFile;
@@ -124,7 +121,6 @@ public abstract class AbstractBaseAction<T> extends ActionSupport implements Mod
 		this.sord = sord;
 	}
 
-<<<<<<< HEAD
 	public String getSortName() {
 		return sortName;
 	}
@@ -141,8 +137,6 @@ public abstract class AbstractBaseAction<T> extends ActionSupport implements Mod
 		this.sortOrder = sortOrder;
 	}
 
-=======
->>>>>>> init commit
 	public String getAppId() {
 		return appId;
 	}
