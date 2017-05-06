@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    This configuration file was written by the eclipse-cs plugin configuration editor
+-->
+<!--
+    Checkstyle-Configuration: checkstyle
+    Description: 
+-->
+<!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.2//EN" "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
+<module name="Checker">
+	<module name="FileLength">
+    	<metadata name="com.atlassw.tools.eclipse.checkstyle.comment" value="java文件长度"/>
+    </module>
+    <module name="StrictDuplicateCode">
+        <metadata name="com.atlassw.tools.eclipse.checkstyle.comment" value="重复代码检测"/>
+    </module>
+    <module name="TreeWalker">
+        <module name="LineLength">
+            <metadata name="com.atlassw.tools.eclipse.checkstyle.comment" value="长度检测，最大200"/>
+            <property name="severity" value="warning"/>
+            <property name="max" value="200"/>
+            <property name="tabWidth" value="4"/>
+        </module>
+        <module name="MethodLength">
+            <metadata name="com.atlassw.tools.eclipse.checkstyle.comment" value="函数最大长度"/>
+            <property name="severity" value="warning"/>
+            <property name="max" value="200"/>
+            <property name="countEmpty" value="false"/>
+        </module>
+        <module name="ParameterNumber">
+            <metadata name="com.atlassw.tools.eclipse.checkstyle.comment" value="函数最大参数个数"/>
+            <property name="severity" value="warning"/>
+            <property name="tokens" value="METHOD_DEF"/>
+        </module>
+        <module name="MethodName">
+            <metadata name="com.atlassw.tools.eclipse.checkstyle.comment" value="检查函数名"/>
+            <property name="severity" value="warning"/>
+        </module>
+        <module name="AvoidStarImport">
+            <metadata name="com.atlassw.tools.eclipse.checkstyle.comment" value="避免*引入"/>
+            <property name="severity" value="warning"/>
+        </module>
+        <module name="UnusedImports">
+            <metadata name="com.atlassw.tools.eclipse.checkstyle.comment" value="无效引用"/>
+            <property name="severity" value="warning"/>
+        </module>
+        <module name="MagicNumber">
+            <metadata name="com.atlassw.tools.eclipse.checkstyle.comment" value="魔法数字检测"/>
+            <property name="severity" value="warning"/>
+        </module>
+        <module name="ConstantName">
+            <metadata name="com.atlassw.tools.eclipse.checkstyle.comment" value="检查static final变量名"/>
+            <property name="severity" value="warning"/>
+        </module>
+        <module name="LocalVariableName">
+            <metadata name="com.atlassw.tools.eclipse.checkstyle.comment" value="检查local变量名"/>
+            <property name="severity" value="warning"/>
+        </module>
+        <module name="LocalFinalVariableName">
+            <metadata name="com.atlassw.tools.eclipse.checkstyle.comment" value="检查local final变量名"/>
+            <property name="severity" value="warning"/>
+        </module>
+        <module name="MemberName">
+            <metadata name="com.atlassw.tools.eclipse.checkstyle.comment" value="检查成员变量名"/>
+            <property name="severity" value="warning"/>
+        </module>
+        <module name="PackageName">
+            <metadata name="com.atlassw.tools.eclipse.checkstyle.comment" value="检查包名"/>
+            <property name="severity" value="warning"/>
+        </module>
+        <module name="StaticVariableName">
+            <metadata name="com.atlassw.tools.eclipse.checkstyle.comment" value="检查static 变量名"/>
+            <property name="severity" value="warning"/>
+        </module>
+        <module name="ParameterName">
+            <metadata name="com.atlassw.tools.eclipse.checkstyle.comment" value="检查参数名"/>
+            <property name="severity" value="warning"/>
+        </module>
+        <module name="TypeName">
+            <metadata name="com.atlassw.tools.eclipse.checkstyle.comment" value="检查类名(class 或interface)"/>
+            <property name="severity" value="warning"/>
+        </module>
+        <module name="EmptyStatement">
+            <metadata name="com.atlassw.tools.eclipse.checkstyle.comment" value="空执行模检测"/>
+            <property name="severity" value="warning"/>
+        </module>
+        <module name="NestedIfDepth">
+            <metadata name="com.atlassw.tools.eclipse.checkstyle.comment" value="函数if-else最大嵌套深度"/>
+            <property name="max" value="4"/>
+            <property name="severity" value="warning"/>
+        </module>
+        <module name="StringLiteralEquality">
+            <metadata name="com.atlassw.tools.eclipse.checkstyle.comment" value="String的比较不能用!= 和 =="/>
+            <property name="severity" value="warning"/>
+        </module>
+        <module name="CyclomaticComplexity">
+            <metadata name="com.atlassw.tools.eclipse.checkstyle.comment" value="函数的分支复杂度"/>
+            <property name="severity" value="warning"/>
+        </module>
+    </module>
+</module>
