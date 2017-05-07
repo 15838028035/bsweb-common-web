@@ -70,6 +70,8 @@
 		<commons-lang.version>2.6</commons-lang.version>
 
 		<axis2.version>1.6.2</axis2.version>
+		
+		<bsweb-common-core.version>0.0.1</bsweb-common-core.version>
 
 		<!-- Plugin的属性定 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -428,7 +430,7 @@
 			<dependency>
 				<groupId>com.lj.app.bsweb</groupId>
 				<artifactId>bsweb-common-core</artifactId>
-				<version>${project.version}</version>
+				<version>${bsweb-common-core.version}</version>
 			</dependency>
 			
 		</dependencies>
