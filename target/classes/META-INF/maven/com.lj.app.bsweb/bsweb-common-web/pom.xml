@@ -425,6 +425,12 @@
 				<artifactId>org.apache.poi.xwpf.converter.xhtml-gae</artifactId>
 				<version>1.0.5</version>
 			</dependency>
+			<dependency>
+				<groupId>com.lj.app.bsweb</groupId>
+				<artifactId>bsweb-common-core</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			
 		</dependencies>
 
 	<build>
