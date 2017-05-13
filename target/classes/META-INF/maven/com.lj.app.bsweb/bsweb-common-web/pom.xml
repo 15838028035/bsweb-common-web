@@ -20,9 +20,9 @@
 	</developers>
 
 	<scm>
-		<connection>scm:git:https://github.com/liujie15838028035/bsweb.git</connection>
-		<developerConnection>scm:git:https://github.com/liujie15838028035/bsweb.git</developerConnection>
-		<url>scm:git:https://github.com/liujie15838028035/bsweb.git</url>
+		<connection>scm:git:git@github.com:975545486/bsweb-common-web.git</connection>
+		<developerConnection>scm:git:git@github.com:975545486/bsweb-common-web.git</developerConnection>
+		<url>scm:git:git@github.com:975545486/bsweb-common-web.git</url>
 	</scm>
 
 	<!-- 设定除中央仓repo1.maven.org/maven2/)外的其他仓库,按设定顺序进行查 -->
@@ -97,15 +97,15 @@
 
 		<!-- Plugin的属性定 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<jdk.version>1.6</jdk.version>
-		<project.name>bsweb</project.name>
-		<project.build.finalName>bsweb</project.build.finalName>
+		<jdk.version>1.7</jdk.version>
+		<project.name>bsweb-common-web</project.name>
+		<project.build.finalName>bsweb-common-web</project.build.finalName>
 
 	</properties>
 	
   	<groupId>com.lj.app.bsweb</groupId>
 	<artifactId>bsweb-common-web</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
   
    <dependencies>
 			<dependency>
