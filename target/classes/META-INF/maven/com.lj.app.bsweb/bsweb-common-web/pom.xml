@@ -11,7 +11,7 @@
 			<url>http://localhost:8080/bsweb</url>
 			<organization>http://localhost:8080/bsweb</organization>
 			<organizationUrl>http://localhost:8080/bsweb</organizationUrl>
-			<email>liujie09_24@163.com</email>
+			<email>15838028035@163.com</email>
 			<timezone>8</timezone>
 			<roles>
 				<role>Java Developer</role>
@@ -20,9 +20,9 @@
 	</developers>
 
 	<scm>
-		<connection>scm:git:git@github.com:975545486/bsweb-common-web.git</connection>
-		<developerConnection>scm:git:git@github.com:975545486/bsweb-common-web.git</developerConnection>
-		<url>scm:git:git@github.com:975545486/bsweb-common-web.git</url>
+		<connection>scm:git:git@github.com:15838028035/bsweb-common-web.git</connection>
+		<developerConnection>scm:git:git@github.com:15838028035/bsweb-common-web.git</developerConnection>
+		<url>scm:git:git@github.com:15838028035/bsweb-common-web.git</url>
 	</scm>
 
 	<!-- 设定除中央仓repo1.maven.org/maven2/)外的其他仓库,按设定顺序进行查 -->
