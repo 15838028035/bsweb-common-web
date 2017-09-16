@@ -68,9 +68,9 @@ public class CharFilter implements Filter {
 							|| Pattern.matches("^.*(%3C|<|&lt;|%253c|%3c).*$", _value) 
 							|| Pattern.matches("^.*(%3E|>|&gt;|%253e|%3e).*$", _value)
 							|| Pattern.matches("^.*(%0A|%250A|%0a|%250a).*$", _value)){
-						response.sendRedirect(request.getContextPath()+"/jsp/common/nopermission.jsp");
-						return;
-					}
+						//不做 处理  response.sendRedirect(request.getContextPath()+"/jsp/common/nopermission.jsp");
+						//return;
+					} 
 				}	
 			}
 			
