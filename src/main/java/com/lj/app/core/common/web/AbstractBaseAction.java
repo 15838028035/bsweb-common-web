@@ -351,6 +351,9 @@ public abstract class AbstractBaseAction<T> extends ActionSupport implements Mod
 			multideleteTemp = new String[]{multidelete};
 		}
 		for (int i = 0; i < multideleteTemp.length; i++) {
+			if(StringUtil.isBlank(multideleteTemp[i])){
+				continue;
+			}
 			int deleteId = Integer.parseInt(multideleteTemp[i].trim());
 			
 			try{
