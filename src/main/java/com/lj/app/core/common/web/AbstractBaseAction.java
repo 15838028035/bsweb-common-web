@@ -307,6 +307,30 @@ public abstract class AbstractBaseAction<T> extends ActionSupport implements Mod
 	}
 	
 	/**
+	 * 公共bootStrapList查询方法
+	 * @return
+	 * @throws Exception
+	 */
+	public String bootStrapList() throws Exception {
+		try {
+			Map<String,Object> condition = new HashMap<String,Object>();
+			page.setFilters(getModel());
+			
+			if (StringUtil.isNotBlank(this.getSortName())) {
+				String orderBy = PageTool.convert(this.getSortName()) + " "+ this.getSortOrder();
+				page.setSortColumns(orderBy);
+			}
+			
+			page = getBaseService().findPageList(page, condition);
+			Struts2Utils.renderText(PageTool.pageToJsonBootStrap(this.page),new String[0]);
+			return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+	}
+	
+	/**
 	 * 公共保存或者更新方法
 	 * @return
 	 * @throws Exception
