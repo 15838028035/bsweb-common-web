@@ -312,8 +312,17 @@ public abstract class AbstractBaseAction<T> extends ActionSupport implements Mod
 	 * @throws Exception
 	 */
 	public String bootStrapList() throws Exception {
+		Map<String,Object> condition = new HashMap<String,Object>();
+		return bootStrapListCommon(condition);
+	}
+	
+	/**
+	 * 公共bootStrapList查询方法
+	 * @return
+	 * @throws Exception
+	 */
+	public String bootStrapListCommon(Map<String,Object> condition ) throws Exception {
 		try {
-			Map<String,Object> condition = new HashMap<String,Object>();
 			page.setFilters(getModel());
 			
 			if (StringUtil.isNotBlank(this.getSortName())) {
