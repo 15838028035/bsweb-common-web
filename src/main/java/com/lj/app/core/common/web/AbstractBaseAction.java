@@ -14,6 +14,7 @@ import org.apache.struts2.ServletActionContext;
 
 import com.lj.app.core.common.base.entity.BaseEntity;
 import com.lj.app.core.common.base.service.BaseService;
+import com.lj.app.core.common.exception.BusinessException;
 import com.lj.app.core.common.pagination.Page;
 import com.lj.app.core.common.pagination.PageTool;
 import com.lj.app.core.common.util.AjaxResult;
@@ -373,7 +374,6 @@ public abstract class AbstractBaseAction<T> extends ActionSupport implements Mod
 		}
 	}
 	
-	
 	public String multidelete() throws Exception {
 		String returnMessage = "";
 		String[] multideleteTemp;
@@ -390,12 +390,16 @@ public abstract class AbstractBaseAction<T> extends ActionSupport implements Mod
 			int deleteId = Integer.parseInt(multideleteTemp[i].trim());
 			
 			try{
+				multideleteValidate(deleteId);
 				// 循环删除
 				getBaseService().delete(deleteId);
-			}catch(Exception e){
+			}catch(BusinessException e){
+				returnMessage = e.getMessage();
+				e.printStackTrace();
+			}
+			catch(Exception e){
 				returnMessage = "删除失败";
 				e.printStackTrace();
-				throw e;
 			}
 		}
 		AjaxResult ar = new AjaxResult();
@@ -407,6 +411,15 @@ public abstract class AbstractBaseAction<T> extends ActionSupport implements Mod
 		
 		Struts2Utils.renderJson(ar);
 		return null;
+	}
+	
+	/**
+	 * 删除校验
+	 * @param deleteId
+	 * @throws Exception
+	 */
+	public void multideleteValidate(Integer deleteId) throws BusinessException {
+		
 	}
 	
 	public String downloadExcelTemplates() throws IOException {
