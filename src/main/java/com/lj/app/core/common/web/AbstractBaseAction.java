@@ -97,6 +97,8 @@ public abstract class AbstractBaseAction<T> extends ActionSupport implements Mod
 	protected String templateFileFileName;
 	// ContentType为固定格式
 	protected String templateFileContentType;
+	
+	protected String  conditionWhere;//页面查询
 		
 	public String getMultidExecute() {
 		return multidExecute;
@@ -209,6 +211,14 @@ public abstract class AbstractBaseAction<T> extends ActionSupport implements Mod
 
 	public void setTemplateFileContentType(String templateFileContentType) {
 		this.templateFileContentType = templateFileContentType;
+	}
+
+	public String getConditionWhere() {
+		return conditionWhere;
+	}
+
+	public void setConditionWhere(String conditionWhere) {
+		this.conditionWhere = conditionWhere;
 	}
 
 	public int getLoginUserId() {
@@ -331,6 +341,10 @@ public abstract class AbstractBaseAction<T> extends ActionSupport implements Mod
 				page.setSortColumns(orderBy);
 			}
 			
+			if (StringUtil.isNotBlank(conditionWhere)) {
+				condition.put("conditionWhere", conditionWhere);
+			}
+			
 			page = getBaseService().findPageList(page, condition);
 			Struts2Utils.renderText(PageTool.pageToJsonBootStrap(this.page),new String[0]);
 			return null;
@@ -426,6 +440,10 @@ public abstract class AbstractBaseAction<T> extends ActionSupport implements Mod
 		return downloadTemplates("xls");
 	}
 	
+	public String downloadXmlTemplates() throws IOException {
+		return downloadTemplates("xml");
+	}
+	
 	public String downloadTemplates(String templateType) throws IOException {
 		String filetype = ServletActionContext.getRequest().getParameter("filetype");
 		String templateDir = ServletActionContext.getRequest().getParameter("templateDir");
@@ -446,6 +464,10 @@ public abstract class AbstractBaseAction<T> extends ActionSupport implements Mod
 	public void download(String filepath, String filedisplay, OutputStream out)
 			throws IOException {
 		File f = new File(filepath);
+		if(f==null || !f.exists()){
+			f.createNewFile();
+		}
+		
 		FileInputStream in = new FileInputStream(f);
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		byte[] b = new byte[2048];
