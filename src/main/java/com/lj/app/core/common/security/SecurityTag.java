@@ -21,7 +21,7 @@ public class SecurityTag extends SimpleTagSupport {
 
 	public void doTag() throws JspException, IOException {
 		if(required == null || required.equals("true")) {
-			CMSecurityContext securityContext = (CMSecurityContext)this.getJspContext().findAttribute(
+			CmSecurityContext securityContext = (CmSecurityContext)this.getJspContext().findAttribute(
 					SecurityConstants.SECURITY_CONTEXT);
 			
 			if (code == null || securityContext == null)

@@ -89,7 +89,7 @@ public class SecurityFilter implements Filter {
 			
 			String requestUri = request.getRequestURI().toString();
 			String contextPath = request.getContextPath();
-			CMSecurityContext securityContext = (CMSecurityContext) session.getAttribute(SecurityConstants.SECURITY_CONTEXT);
+			CmSecurityContext securityContext = (CmSecurityContext) session.getAttribute(SecurityConstants.SECURITY_CONTEXT);
 			
 			String multiLogin = PropertiesUtil.getPropertyTrim("multiLogin");
 			String isNotAllowDiffClientLogin = PropertiesUtil.getPropertyTrim("isNotAllowDiffClientLogin");
@@ -183,7 +183,7 @@ public class SecurityFilter implements Filter {
 	 * @param securityContext
 	 * @return
 	 */
-	private boolean validatePermission(CMSecurityContext securityContext, String requestUri, String contextPath) {
+	private boolean validatePermission(CmSecurityContext securityContext, String requestUri, String contextPath) {
 		if(!isSkipValidate(requestUri, contextPath)){
 			if(!securityContext.hasUrlPermission(requestUri)) {
 				return false;
@@ -199,7 +199,7 @@ public class SecurityFilter implements Filter {
 	 * @param requestUri 
 	 * @return
 	 */
-	private boolean validateSession(CMSecurityContext securityContext, String requestUri, String contextPath) {
+	private boolean validateSession(CmSecurityContext securityContext, String requestUri, String contextPath) {
 		if(!isSkipSessionValidate(requestUri, contextPath)) {
 			if(securityContext == null) {
 				return false;
