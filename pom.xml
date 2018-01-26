@@ -1,6 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+	<groupId>com.github.15838028035</groupId>
+	<artifactId>bsweb-common-web</artifactId>
+	<version>0.0.1</version>
 	<packaging>jar</packaging>
+	
 	<name>bsweb-common-web</name>
 	<url>http://maven.apache.org</url>
 	
@@ -35,38 +39,16 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
-		<repository>  
-                <id>nexus1</id>  
-                <name>Nexus1</name>  
-                <url>http://127.0.0.1:8081/repository/maven-public/</url>  
-                <releases>  
-                    <enabled>true</enabled>  
-                </releases>  
-                <snapshots>  
-                    <enabled>true</enabled>  
-                </snapshots>  
-            </repository>
-            <repository>  
-                <id>nexus2</id>  
-                <name>Nexus2</name>  
-                <url>http://127.0.0.1:8081/repository/maven-releases/</url>  
-                <releases>  
-                    <enabled>true</enabled>  
-                </releases>  
-                <snapshots>  
-                    <enabled>true</enabled>  
-                </snapshots>  
-            </repository>    
 	</repositories>
 
 	<distributionManagement>
 		<repository>
-            <id>nexus-releases</id>
-            <url>http://127.0.0.1:8081/repository/maven-releases/</url>
+            <id>oss-releases</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
         </repository>
         <snapshotRepository>
-            <id>nexus-snapshots</id>
-            <url>http://127.0.0.1:8081/repository/maven-snapshots/</url>
+            <id>oss-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
 	</distributionManagement>
 
@@ -96,10 +78,6 @@
 		<project.build.finalName>bsweb-common-web</project.build.finalName>
 
 	</properties>
-	
-  	<groupId>com.lj.app.bsweb</groupId>
-	<artifactId>bsweb-common-web</artifactId>
-	<version>0.0.1</version>
   
    <dependencies>
 			<dependency>
@@ -444,7 +422,7 @@
 				<version>1.0.5</version>
 			</dependency>
 			<dependency>
-				<groupId>com.lj.app.bsweb</groupId>
+				<groupId>com.github.15838028035</groupId>
 				<artifactId>bsweb-common-core</artifactId>
 				<version>${bsweb-common-core.version}</version>
 			</dependency>
