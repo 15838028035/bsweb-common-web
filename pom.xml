@@ -39,6 +39,17 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
+		
+		 <repository>
+         <id>oss-release</id>
+         <url>https://oss.sonatype.org/content/groups/staging</url>
+     </repository>
+     
+    <repository>
+         <id>oss-snapshot</id>
+         <url>https://oss.sonatype.org/content/groups/public</url>
+     </repository>
+     
 	</repositories>
 
 	<distributionManagement>
@@ -69,7 +80,7 @@
 
 		<axis2.version>1.6.2</axis2.version>
 		
-		<bsweb-common-core.version>0.0.1</bsweb-common-core.version>
+		<bsweb-common-core.version>0.0.1-SNAPSHOT</bsweb-common-core.version>
 
 		<!-- Plugin的属性定 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
