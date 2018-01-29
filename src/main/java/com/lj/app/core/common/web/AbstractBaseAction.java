@@ -10,8 +10,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.ServletActionContext;
 
+import com.lj.app.bsweb.upm.user.web.LoginAction;
 import com.lj.app.core.common.base.entity.BaseEntity;
 import com.lj.app.core.common.base.service.BaseService;
 import com.lj.app.core.common.exception.BusinessException;
@@ -35,6 +38,9 @@ import com.opensymphony.xwork2.Preparable;
  */
 @SuppressWarnings("serial")
 public abstract class AbstractBaseAction<T> extends ActionSupport implements ModelDriven<T>, Preparable {
+
+  private static Log logger = LogFactory.getLog(AbstractBaseAction.class);
+  
 
 	/** 进行增删改操作后,以redirect方式重新打开action默认页的result名.*/
 	public static final String RELOAD = "reload";
@@ -349,7 +355,7 @@ public abstract class AbstractBaseAction<T> extends ActionSupport implements Mod
 			Struts2Utils.renderText(PageTool.pageToJsonBootStrap(this.page),new String[0]);
 			return null;
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error(e);
 			throw e;
 		}
 	}
@@ -383,7 +389,7 @@ public abstract class AbstractBaseAction<T> extends ActionSupport implements Mod
 			return LIST;
 		}catch(Exception e){
 			returnMessage = CREATE_FAILURE;
-			e.printStackTrace();
+			logger.error(e);
 			throw e;
 		}
 	}
@@ -409,7 +415,7 @@ public abstract class AbstractBaseAction<T> extends ActionSupport implements Mod
 				getBaseService().delete(deleteId);
 			}catch(BusinessException e){
 				returnMessage = e.getMessage();
-				e.printStackTrace();
+				logger.error(e);
 			}
 			catch(Exception e){
 				returnMessage = "删除失败";
@@ -482,6 +488,7 @@ public abstract class AbstractBaseAction<T> extends ActionSupport implements Mod
 				"attachment;filename=" + filedisplay);
 		baos.writeTo(out);
 		out.flush();
+		in.close();
 	}
 	
 	public abstract  BaseService<T> getBaseService();
