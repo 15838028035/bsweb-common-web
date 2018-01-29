@@ -6,12 +6,17 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 /**
  * 简单树
  *
  */
 public class SimpleTree extends TagSupport{
 	
+  private static Log logger = LogFactory.getLog(SimpleTree.class);
+  
 	private final static String DATA_TYPE_JSON = "json";
 	private final static String DATA_TYPE_XML = "xml";
 	private final static String DATA_TYPE_HTML = "html";
@@ -76,7 +81,7 @@ public class SimpleTree extends TagSupport{
 		try {
 			write.print(s);
 		} catch (IOException e) {
-			e.printStackTrace();
+			 logger.error(e);
 		}
 	}
 

@@ -318,7 +318,7 @@ public abstract class AbstractBaseAction<T> extends ActionSupport implements Mod
 			Struts2Utils.renderText(PageTool.pageToJsonJQGrid(this.page),new String[0]);
 			return null;
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error(e);
 			throw e;
 		}
 	}
@@ -419,7 +419,7 @@ public abstract class AbstractBaseAction<T> extends ActionSupport implements Mod
 			}
 			catch(Exception e){
 				returnMessage = "删除失败";
-				e.printStackTrace();
+				logger.error(e);
 			}
 		}
 		AjaxResult ar = new AjaxResult();

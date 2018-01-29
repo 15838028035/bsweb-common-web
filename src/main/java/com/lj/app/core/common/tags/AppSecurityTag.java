@@ -5,7 +5,13 @@ import java.io.IOException;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 public class AppSecurityTag extends SimpleTagSupport {
+
+  private static Log logger = LogFactory.getLog(AppSecurityTag.class);
+  
 
 	private String code;
 	private String required;
@@ -22,7 +28,7 @@ public class AppSecurityTag extends SimpleTagSupport {
 					try {
 						//TODO:实现权限校验
 					} catch (Exception e) {
-						e.printStackTrace();
+						logger.error(e);
 					}
 				}
 			}

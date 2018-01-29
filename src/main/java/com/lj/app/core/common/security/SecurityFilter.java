@@ -137,10 +137,10 @@ public class SecurityFilter implements Filter {
 			filterChain.doFilter(servletRequest, servletResponse);
 
 		} catch (ServletException sx) {
-			sx.printStackTrace();
+			 logger.error(sx);
 			
 		} catch (IOException iox) {
-			iox.printStackTrace();
+		  logger.error(iox);
 		}
 
 	}

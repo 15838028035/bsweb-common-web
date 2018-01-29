@@ -11,6 +11,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.ServletActionContext;
 
 import jxl.Cell;
@@ -30,6 +32,9 @@ import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
 
 public class ExcelUtil {
+
+  private static Log logger = LogFactory.getLog(ExcelUtil.class);
+  
 	/*************************************************************************** 
 	  * @param fileName EXCEL文件名称 
 	  * @param listTitle EXCEL文件第一行列标题集合 
@@ -52,8 +57,7 @@ public class ExcelUtil {
 	  
 	  } catch (Exception e) {  
 	   result="系统提示：Excel文件导出失败，原因："+ e.toString();  
-	   System.out.println(result);   
-	   e.printStackTrace();  
+	   logger.error(e);
 	  }  
 	  return result;  
 	 } 
@@ -82,7 +86,7 @@ public class ExcelUtil {
 			}
 			wb.close();
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			logger.error(e);
 			throw ex;
 		}
 	}
@@ -197,8 +201,7 @@ public class ExcelUtil {
 	  
 	  } catch (Exception e) {  
 	   result="系统提示：Excel文件导出失败，原因："+ e.toString();  
-	   System.out.println(result);   
-	   e.printStackTrace();  
+	   logger.error(e);
 	  }  
 	  return result;  
 	 }  
