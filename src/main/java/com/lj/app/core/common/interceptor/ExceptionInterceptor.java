@@ -10,6 +10,8 @@ import org.springframework.dao.DataAccessException;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 
+import com.lj.app.core.common.exception.BusinessException;
+
 public class ExceptionInterceptor extends AbstractInterceptor {
 
 
