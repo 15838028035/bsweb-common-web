@@ -1,0 +1,14 @@
+
+language: java
+
+jdk:
+  - oraclejdk8
+ 
+  
+after_success:
+- mvn   cobertura:cobertura  sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=15838028035-github  -Dsonar.login=$SONAR_CLOUD_TOKEN  -X
+notifications:
+  email:
+    - 15838028035@163.com
+
+sudo: required

@@ -36,7 +36,7 @@ public class SimpleTree extends TagSupport{
 	
 	public int doStartTag() throws JspException {
 		
-		StringBuffer treeBuf = new StringBuffer();
+		StringBuilder treeBuf = new StringBuilder();
 		
 		treeBuf.append("<script>");
 		treeBuf.append("tree = new TreePanel(");
