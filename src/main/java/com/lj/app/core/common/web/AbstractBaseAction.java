@@ -46,11 +46,11 @@ public abstract class AbstractBaseAction<T> extends ActionSupport implements Mod
 	
 	public static final String REDIRECT = "redirect";
 	
-	public static final String INPUT = "input";
-	public static final String EDIT = "edit";
-	public static final String SAVE = "save";
-	public static final String LIST = "list";
-	public static final String VIEW = "view";
+	public static final String INPUT_RESULT = "input";
+	public static final String EDIT_RESULT = "edit";
+	public static final String SAVE_RESULT = "save";
+	public static final String LIST_RESULT = "list";
+	public static final String VIEW_RESULT = "view";
 	
 	
 	protected Page<T> page = new Page<T>(PAGESIZE);
