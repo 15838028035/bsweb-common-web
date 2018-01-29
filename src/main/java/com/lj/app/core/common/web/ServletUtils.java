@@ -16,12 +16,18 @@ import java.util.TreeMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 /**
  * Http与Servlet工具类.
  * 
  */
 public class ServletUtils {
 
+
+  private static Log logger = LogFactory.getLog(ServletUtils.class);
+  
 	//-- Content Type 定义 --//
 	public static final String TEXT_TYPE = "text/plain";
 	public static final String JSON_TYPE = "application/json";
@@ -34,7 +40,7 @@ public class ServletUtils {
 	public static final String AUTHENTICATION_HEADER = "Authorization";
 
 	//-- 常用数值定义 --//
-	public static final long ONE_YEAR_SECONDS = 60 * 60 * 24 * 365;
+	public static final Long ONE_YEAR_SECONDS = 60 * 60 * 24 * 365L;
 
 	/**
 	 * 设置客户端缓存过期时间 Header.
@@ -132,6 +138,7 @@ public class ServletUtils {
 			String encodedfileName = new String(fileName.getBytes(), "ISO8859-1");
 			response.setHeader("Content-Disposition", "attachment; filename=\"" + encodedfileName + "\"");
 		} catch (UnsupportedEncodingException e) {
+		  logger.error(e);
 		}
 	}
 

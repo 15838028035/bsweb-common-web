@@ -66,17 +66,6 @@ public class SecurityFilter implements Filter {
 			}
 		}
 		
-		//加载uap_permission中需要验证的url集合
-		//CMPermissionService cMPermissionService = SpringContextHolder.getBean(CMPermissionService.class);
-		logger.info("needValidateUrlSet load......");
-		//needValidateUrlSet = cMPermissionService.findPermissionUrl();
-		//FIXME:修复逻辑
-		
-		logger.info("needValidateUrlSet load success");
-		//加载uap_permission中不可访问的url集合
-		logger.info("disabledAccessUrlSet load......");
-		//disabledAccessUrlSet = securityApiService.findDisabledPermissionUrlByDomainId(2);
-		logger.info("disabledAccessUrlSet load success");
 	}
 
 	public void doFilter(ServletRequest servletRequest,
@@ -99,29 +88,6 @@ public class SecurityFilter implements Filter {
 						&& isNotAllowDiffClientLogin.equalsIgnoreCase("N")){
 					String loginNo = upmUser.getLoginNo();
 					String newClientIp= "";
-					/*IStatStore iStatStore = StoreFactory.getStore();
-					if(iStatStore.isNeedInvalidate(loginNo, session)){
-						
-						 newClientIp = iStatStore.getLoginIpForTip(loginNo);
-						String url="/";
-						if(null!=request.getContextPath()&&!request.getContextPath().trim().equals(""))
-						{
-							url=request.getContextPath();
-						}
-						String tips = "";
-						if(newClientIp!=null && !newClientIp.equals("")){
-							tips = "登陆ip地址:" + newClientIp;
-							response.setContentType("text/html;charset=UTF-8");
-							response.getWriter()
-							.print(
-									"<%@page contentType='text/html;charset=UTF-8'%><script language=\"javaScript\">alert('"+tips+"');var windowRoot = window;while(windowRoot.parent.location!=windowRoot.location){windowRoot = windowRoot.parent;}windowRoot.location='"
-											+ url
-											+ "'</script>");
-							
-							iStatStore.logoff(loginNo, session);
-							return;
-						}
-					}*/
 				}
 			}
 			
@@ -160,7 +126,7 @@ public class SecurityFilter implements Filter {
 				for (Iterator iter = needValidateUrlSet.iterator(); iter.hasNext();) {
 					String url = contextPath + (String) iter.next();
 					if(fullRequestUri.indexOf(url) != -1){
-						if(!securityContext.hasUrlPermission(url)){
+						if(securityContext!=null && !securityContext.hasUrlPermission(url)){
 							response.sendRedirect(contextPath + "/jsp/common/nopermission.jsp");
 							return;
 						}
@@ -184,6 +150,10 @@ public class SecurityFilter implements Filter {
 	 * @return
 	 */
 	private boolean validatePermission(CmSecurityContext securityContext, String requestUri, String contextPath) {
+	  if(securityContext==null) {
+	    return true;
+	  }
+	  
 		if(!isSkipValidate(requestUri, contextPath)){
 			if(!securityContext.hasUrlPermission(requestUri)) {
 				return false;

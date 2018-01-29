@@ -3,14 +3,18 @@ package com.lj.app.core.common.interceptor;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.dao.DataAccessException;
 
-import com.lj.app.core.common.exception.BusinessException;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 
 public class ExceptionInterceptor extends AbstractInterceptor {
 
+
+  private static Log logger = LogFactory.getLog(ExceptionInterceptor.class);
+  
 	private static final long serialVersionUID = -8096551528633660568L;
 
 	@Override
@@ -18,7 +22,10 @@ public class ExceptionInterceptor extends AbstractInterceptor {
 		String result = "globalError";
 		try {
 			result = invocation.invoke();
-			System.out.println("*******************\n" + result);
+			if(logger.isDebugEnabled()){
+			  logger.debug("*******************\n" + result);
+			}
+			
 		} catch (DataAccessException e) {
 			throw new BusinessException("数据库操作失败！");
 		} catch (NullPointerException e) {
@@ -46,8 +53,11 @@ public class ExceptionInterceptor extends AbstractInterceptor {
 		} catch (Exception e) {
 			throw new BusinessException("程序内部错误，操作失败。");
 		}
-		// after(invocation, result);
-		System.out.println("\nexception interceptor----------------------------\n"+ result);
+		
+		if(logger.isDebugEnabled()){
+		  logger.debug("\nexception interceptor----------------------------\n"+ result);
+		}
+		
 		return result;
 
 	}
