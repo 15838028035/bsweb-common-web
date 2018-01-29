@@ -14,7 +14,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.ServletActionContext;
 
-import com.lj.app.bsweb.upm.user.web.LoginAction;
 import com.lj.app.core.common.base.entity.BaseEntity;
 import com.lj.app.core.common.base.service.BaseService;
 import com.lj.app.core.common.exception.BusinessException;
