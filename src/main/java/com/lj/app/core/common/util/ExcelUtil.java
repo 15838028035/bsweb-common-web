@@ -86,7 +86,7 @@ public class ExcelUtil {
 			}
 			wb.close();
 		} catch (Exception ex) {
-			logger.error(e);
+			logger.error(ex);
 			throw ex;
 		}
 	}
