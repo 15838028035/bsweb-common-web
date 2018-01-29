@@ -367,7 +367,7 @@ public abstract class AbstractBaseAction<T> extends ActionSupport implements Mod
 	public String commonSaveOrUpdate() throws Exception {
 		
 	try{
-			if (StringUtil.isEqualsIgnoreCase(operate, AbstractBaseAction.EDIT)) {
+			if (StringUtil.isEqualsIgnoreCase(operate, AbstractBaseAction.EDIT_RESULT)) {
 				BaseEntity entity = (BaseEntity)getModel();
 				entity.setUpdateBy(this.getLoginUserId());
 				entity.setUpdateByUname(this.getUserName());
@@ -385,7 +385,7 @@ public abstract class AbstractBaseAction<T> extends ActionSupport implements Mod
 				returnMessage = CREATE_SUCCESS;
 			}
 			
-			return LIST;
+			return LIST_RESULT;
 		}catch(Exception e){
 			returnMessage = CREATE_FAILURE;
 			logger.error(e);
