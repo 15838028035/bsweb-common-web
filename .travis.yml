@@ -6,7 +6,7 @@ jdk:
  
   
 after_success:
-- mvn   cobertura:cobertura  sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=15838028035-github  -Dsonar.login=$SONAR_CLOUD_TOKEN  -X
+- mvn   cobertura:cobertura  sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=15838028035-github  -Dsonar.login=$SONAR_CLOUD_TOKEN deploy -X
 notifications:
   email:
     - 15838028035@163.com
