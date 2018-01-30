@@ -25,7 +25,10 @@ import org.apache.commons.logging.LogFactory;
  */
 public class ServletUtils {
 
-
+  private ServletUtils() {
+    
+  }
+  
   private static Log logger = LogFactory.getLog(ServletUtils.class);
   
 	//-- Content Type 定义 --//

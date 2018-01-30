@@ -26,6 +26,10 @@ import org.apache.struts2.ServletActionContext;
  */
 public class Struts2Utils {
 
+  private Struts2Utils() {
+    
+  }
+  
 	//-- header 常量定义 --//
 	private static final String HEADER_ENCODING = "encoding";
 	private static final String HEADER_NOCACHE = "no-cache";

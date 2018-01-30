@@ -35,7 +35,6 @@ public class CharFilter implements Filter {
 	
 	static {
 		excludeUrl = new ArrayList<String>();
-		excludeUrl.add("/jsp/common/acctauthor!showAcctAuthorDetail.action"); 
 	}
 
 	public void doFilter(ServletRequest servletRequest,
@@ -68,18 +67,9 @@ public class CharFilter implements Filter {
 							|| Pattern.matches("^.*(%3C|<|&lt;|%253c|%3c).*$", _value) 
 							|| Pattern.matches("^.*(%3E|>|&gt;|%253e|%3e).*$", _value)
 							|| Pattern.matches("^.*(%0A|%250A|%0a|%250a).*$", _value)){
-						//不做 处理  response.sendRedirect(request.getContextPath()+"/jsp/common/nopermission.jsp");
-						//return;
 					} 
 				}	
 			}
-			
-			/*replaceChar(values);
-			
-			for (int i = 0; i < values.length; i++) {
-				request.setAttribute(name, values[i]);
-			}*/
-			
 		}
 
 		chain.doFilter(servletRequest, servletResponse);
