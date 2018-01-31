@@ -38,7 +38,7 @@ import com.opensymphony.xwork2.Preparable;
 @SuppressWarnings("serial")
 public abstract class AbstractBaseAction<T> extends ActionSupport implements ModelDriven<T>, Preparable {
 
-  private static Log logger = LogFactory.getLog(AbstractBaseAction.class);
+  protected static Log logger = LogFactory.getLog(AbstractBaseAction.class);
   
 
 	/** 进行增删改操作后,以redirect方式重新打开action默认页的result名.*/
